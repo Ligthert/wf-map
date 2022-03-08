@@ -13,8 +13,9 @@ q_systems = db.prepare("SELECT * FROM systems ORDER BY id ASC")
 q_system = db.prepare("SELECT * FROM systems WHERE id=$1")
 maxims = q_maxims()[0]
 
-#factor = 20
-factor = 100
+factor = 20
+factor = 22
+#factor = 100
 
 minx = maxims[0]
 maxx = maxims[1]
@@ -30,10 +31,10 @@ centery = int(abs(miny)/factor)
 def drawStar(x,y,colour):
   x = relposx(x)
   y = relposy(y)
-  draw.rectangle([(x-2, y-2),(x+2,y+2)], colour)
+  draw.rectangle([(x-5, y-5),(x+5,y+5)], colour)
 
 def drawText(x,y,text,colour="black"):
-  draw.text( (relposx(x),relposy(y)), text, fill=colour )
+  draw.text( (relposx(x+200),relposy(y+90)), text, fill=colour )
 
 def relpos(x,y):
   relx = int(centerx + (x/factor))
